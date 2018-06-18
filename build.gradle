@@ -1,0 +1,75 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.14.BUILD-SNAPSHOT'
+        dependencyManagementPluginVersion = '0.5.6.RELEASE'
+        camelVersion = '2.18.3'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'idea'
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.devquartzo'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+
+        dependencies {
+            testCompile('org.springframework.boot:spring-boot-starter-test')
+        }
+    }
+}
+
+dependencies {
+    compile project(':st-album')
+    compile project(':st-artist')
+    compile project(':st-common')
+    compile project(':st-song')
+    compile project(':st-api-gateway')
+}
+
+project(':st-artist') {
+    dependencies {
+        implementation project(':st-common')
+    }
+}
+
+project(':st-album') {
+    dependencies {
+        implementation project(':st-common')
+    }
+}
+
+project(':st-song') {
+    dependencies {
+        implementation project(':st-common')
+    }
+}
+
+project(':st-api-gateway') {
+    dependencies {
+        implementation project(':st-common')
+    }
+}
+
+jar {
+    baseName = 'soundtrack-jar'
+    version = '0.0.1-SNAPSHOT'
+}

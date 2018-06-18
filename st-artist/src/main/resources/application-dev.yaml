@@ -1,0 +1,2 @@
+thymeleaf.cache: false
+flyway.locations: classpath:/db/migration,classpath:/dev/db/migration

@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.devquartzo.stapigateway'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "https://repo.spring.io/libs-milestone" }
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compileOnly('org.projectlombok:lombok:1.18.0')
+
+    compile('org.apache.camel:camel-spring-boot-starter:2.18.3')
+
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-commons', version: '1.3.3.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-consul-dependencies', version: '1.3.3.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-swagger-java-starter
+    compile group: 'org.apache.camel', name: 'camel-swagger-java-starter', version: '2.18.3'
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-netty4-http
+    compile group: 'org.apache.camel', name: 'camel-netty4-http', version: '2.18.3'
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-http
+    testCompile group: 'org.apache.camel', name: 'camel-http', version: '2.18.3'
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-jackson
+    compile group: 'org.apache.camel', name: 'camel-jackson', version: '2.18.3'
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-consul-starter
+    compile group: 'org.apache.camel', name: 'camel-consul-starter', version: '2.18.3'
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-core
+    compile group: 'org.apache.camel', name: 'camel-core', version: '2.18.3'
+}
+
+jar {
+    baseName = 'stapigateway-jar'
+    version = '0.0.1-SNAPSHOT'
+}

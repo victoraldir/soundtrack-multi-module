@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  PostgreSQL:
+    image: postgres:9.4
+    restart: always
+    ports:
+        - "5432:5432"
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: 123456
+    volumes:
+        - ./sql/init.sh:/docker-entrypoint-initdb.d/init.sh
+  consul:
+    image: consul
+    ports:
+      - "8500:8500"
+      - "8600:8600"
+    environment:
+      CONSUL_UI_BETA: "true"
+
+  swagger:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8081:8080"
+    environment:
+      API_URL: "http://localhost:8000/api-doc"

@@ -1,0 +1,10 @@
+spring:
+  application.name: st-song
+  datasource:
+    url: jdbc:postgresql://localhost:5432/st_song
+    username: stsong
+    password: 123456
+  jpa:
+    hibernate.ddl-auto: validate
+    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+server.port: 0

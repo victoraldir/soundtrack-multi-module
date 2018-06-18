@@ -1,0 +1,2 @@
+include 'st-commons'
+rootProject.name = 'st-artist'
