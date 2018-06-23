@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.devquartzo.stgateway'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.cloud:spring-cloud-commons:1.3.3.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-starter-zuul:1.3.3.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-starter-consul-all:1.3.3.RELEASE')
+    compileOnly('org.projectlombok:lombok:1.18.0')
+}
+
+jar {
+    baseName = 'stcommon-jar'
+    version = '0.0.1-SNAPSHOT'
+}

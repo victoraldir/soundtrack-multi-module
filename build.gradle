@@ -42,7 +42,7 @@ dependencies {
     compile project(':st-artist')
     compile project(':st-common')
     compile project(':st-song')
-    compile project(':st-api-gateway')
+    compile project(':st-gateway')
 }
 
 jar {

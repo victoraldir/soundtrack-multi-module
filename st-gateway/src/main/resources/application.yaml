@@ -1,0 +1,27 @@
+zuul:
+  ignoreLocalService: false
+  routes:
+    st-album:
+      path: /albums/**
+      serviceId: st-album
+      strip-prefix: false
+    st-song:
+      path: /songs/**
+      serviceId: st-song
+      strip-prefix: false
+    st-artist:
+      path: /artists/**
+      serviceId: st-artist
+      strip-prefix: false
+
+server:
+  port: 8085
+
+logging:
+  level:
+   org.springframework: INFO
+   com.netflix: DEBUG
+
+spring:
+  application:
+    name: st-gateway
