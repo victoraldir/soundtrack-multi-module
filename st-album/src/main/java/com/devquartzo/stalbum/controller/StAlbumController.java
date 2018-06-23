@@ -1,10 +1,11 @@
 package com.devquartzo.stalbum.controller;
 
 import com.devquartzo.stalbum.exception.AlbumNotFoundException;
-import com.devquartzo.stalbum.model.Album;
-import com.devquartzo.stalbum.repository.AlbumRepository;
+
+
+import com.devquartzo.stcommon.album.model.Album;
+import com.devquartzo.stcommon.album.repository.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;

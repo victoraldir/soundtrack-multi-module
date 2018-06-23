@@ -1,8 +1,8 @@
 package com.devquartzo.stsong.controller.controller;
 
+import com.devquartzo.stcommon.song.model.Song;
+import com.devquartzo.stcommon.song.repository.SongRepository;
 import com.devquartzo.stsong.controller.exception.SongNotFoundException;
-import com.devquartzo.stsong.controller.model.Song;
-import com.devquartzo.stsong.controller.repository.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.ResponseEntity;

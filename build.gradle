@@ -45,30 +45,6 @@ dependencies {
     compile project(':st-api-gateway')
 }
 
-project(':st-artist') {
-    dependencies {
-        implementation project(':st-common')
-    }
-}
-
-project(':st-album') {
-    dependencies {
-        implementation project(':st-common')
-    }
-}
-
-project(':st-song') {
-    dependencies {
-        implementation project(':st-common')
-    }
-}
-
-project(':st-api-gateway') {
-    dependencies {
-        implementation project(':st-common')
-    }
-}
-
 jar {
     baseName = 'soundtrack-jar'
     version = '0.0.1-SNAPSHOT'

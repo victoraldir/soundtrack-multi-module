@@ -1,4 +1,4 @@
-package com.devquartzo.stsong.controller.model;
+package com.devquartzo.stcommon.song.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

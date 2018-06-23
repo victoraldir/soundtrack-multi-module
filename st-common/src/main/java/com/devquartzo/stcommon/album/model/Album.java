@@ -1,7 +1,7 @@
-package com.devquartzo.stalbum.model;
+package com.devquartzo.stcommon.album.model;
 
-import com.devquartzo.stalbum.converter.StringListConverter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.devquartzo.stcommon.album.converter.StringListConverter;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -32,7 +32,7 @@ public class Album {
     @JsonProperty
     private String coverUrl;
 
-    @Column
+    @Column(name = "songs_id")
     @Convert(converter = StringListConverter.class)
     private List<String> songsId;
 

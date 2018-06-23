@@ -25,4 +25,5 @@ dependencies {
     compileOnly('org.projectlombok:lombok:1.18.0')
     compile('org.flywaydb:flyway-core:5.1.1')
     compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
+    compile project(':st-common')
 }

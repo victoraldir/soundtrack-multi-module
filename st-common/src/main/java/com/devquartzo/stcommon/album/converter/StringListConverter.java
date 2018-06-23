@@ -1,4 +1,4 @@
-package com.devquartzo.stalbum.converter;
+package com.devquartzo.stcommon.album.converter;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
@@ -16,6 +16,9 @@ public class StringListConverter implements AttributeConverter<List<String>, Str
 
     @Override
     public List<String> convertToEntityAttribute(String joined) {
+        if(joined == null)
+            return new ArrayList<>();
+
         return new ArrayList<>(Arrays.asList(joined.split(",")));
     }
 

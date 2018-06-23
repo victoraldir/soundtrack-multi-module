@@ -36,6 +36,12 @@ dependencies {
     compile group: 'org.apache.camel', name: 'camel-consul-starter', version: '2.18.3'
     // https://mvnrepository.com/artifact/org.apache.camel/camel-core
     compile group: 'org.apache.camel', name: 'camel-core', version: '2.18.3'
+
+    compile project(':st-common')
+}
+
+configurations {
+    compile.exclude module: 'spring-boot-starter-data-jpa'
 }
 
 jar {

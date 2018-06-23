@@ -1,9 +1,10 @@
-package com.devquartzo.stcommon.model;
+package com.devquartzo.stcommon.artist.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
 
 @Builder
@@ -11,8 +12,10 @@ import java.util.UUID;
 @Setter
 @ToString
 @AllArgsConstructor
-public class Album {
+@Entity
+public class Artist {
 
+    @Id
     @JsonProperty
     private String id;
 
@@ -22,13 +25,7 @@ public class Album {
     @JsonProperty
     private String description;
 
-    @JsonProperty
-    private String coverUrl;
-
-    private List<String> songsId;
-
-    public Album(){
+    public Artist() {
         id = UUID.randomUUID().toString();
     }
-
 }
