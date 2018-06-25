@@ -12,4 +12,5 @@ spring:
 ribbon:
   enabled: true
 
-server.port: 0
+server:
+  port: 0
