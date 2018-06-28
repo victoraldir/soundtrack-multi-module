@@ -59,12 +59,12 @@ public class StSongApplication {
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.devquartzo.startist.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.devquartzo.stsong.controller"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Artist API").version("1.0.0").build();
+        return new ApiInfoBuilder().title("Song API").version("1.0.0").build();
     }
 }

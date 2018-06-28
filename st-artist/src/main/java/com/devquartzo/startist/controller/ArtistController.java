@@ -39,7 +39,7 @@ public class ArtistController {
         return artist.get();
     }
 
-    @PostMapping("/post")
+    @PostMapping
     public ResponseEntity<Object> createArtist(@RequestBody Artist artist) {
 
         Artist savedArtist = artistRepository.save(artist);
