@@ -16,10 +16,10 @@ public class DocumentationController implements SwaggerResourcesProvider {
 
     @Override
     public List get() {
-        List resources = new ArrayList();
-        resources.add(swaggerResource("st-album", "/api/st-album/v2/api-docs", "2.0"));
-        resources.add(swaggerResource("st-artist", "/api/st-artist/v2/api-docs", "2.0"));
-        resources.add(swaggerResource("st-song", "/api/st-song/v2/api-docs", "2.0"));
+        List resources = new ArrayList<>();
+        resources.add(swaggerResource("album-service", "/api/album/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("song-service", "/api/song/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("artist-service", "/api/artist/v2/api-docs", "2.0"));
         return resources;
     }
 

@@ -1,5 +1,5 @@
 spring:
-  application.name: st-song
+  application.name: song-service
   datasource:
     url: jdbc:postgresql://localhost:5432/st_song
     username: stsong
@@ -7,4 +7,5 @@ spring:
   jpa:
     hibernate.ddl-auto: validate
     properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
-server.port: 0
+server:
+  port: 0

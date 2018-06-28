@@ -1,5 +1,5 @@
 spring:
-  application.name: st-album
+  application.name: album-service
   #profiles.active: dev
   datasource:
       url: jdbc:postgresql://localhost:5432/st_album
@@ -8,9 +8,6 @@ spring:
   jpa:
       hibernate.ddl-auto: update
       properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
-
-ribbon:
-  enabled: true
 
 server:
   port: 0

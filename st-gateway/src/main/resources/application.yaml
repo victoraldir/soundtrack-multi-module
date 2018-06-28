@@ -1,19 +1,16 @@
 zuul:
   ignoreLocalService: false
+  prefix: /api
   routes:
-    st-album:
-      path: /albums/**
-      serviceId: st-album
-      strip-prefix: false
-    st-song:
-      path: /songs/**
-      serviceId: st-song
-      strip-prefix: false
-    st-artist:
-      path: /artists/**
-      serviceId: st-artist
-      strip-prefix: false
-
+    album:
+      path: /album/**
+      serviceId: album-service
+    song:
+      path: /song/**
+      serviceId: song-service
+    artist:
+      path: /artist/**
+      serviceId: artist-service
 server:
   port: 8085
 
