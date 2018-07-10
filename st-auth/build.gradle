@@ -15,13 +15,14 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
-    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt
-    compile group: 'org.springframework.security', name: 'spring-security-jwt', version: '1.0.9.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
-    compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.0.6.RELEASE'
-    // https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2
-    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.3.3.RELEASE'
+    compile('org.springframework.security.oauth:spring-security-oauth2:2.3.3.RELEASE')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.flywaydb:flyway-core:5.1.1')
+    compile('postgresql:postgresql:9.0-801.jdbc4')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compileOnly('org.projectlombok:lombok:1.18.0')
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.1.0'
+
 }
 
 jar {

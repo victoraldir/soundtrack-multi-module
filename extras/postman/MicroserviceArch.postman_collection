@@ -1,0 +1,228 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MicroserviceArch",
+		"_postman_id": "5ca90507-f7eb-8243-c0da-433f470b5f9c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Artists",
+			"description": "",
+			"item": [
+				{
+					"name": "POST Artist",
+					"request": {
+						"url": "http://localhost:8085/api/artist/artists",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Victor hereSSS\",\"description\":\"Just another row\"}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET Artist",
+					"request": {
+						"url": "http://localhost:8085/api/artist/artists/545620bc-0df2-4a61-8d94-8e7f1d2ff7b1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET All artists",
+					"request": {
+						"url": "http://localhost:8085/api/artist/artists",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Artist",
+					"request": {
+						"url": "http://localhost:8085/api/artist/artists/545620bc-0df2-4a61-8d94-8e7f1d2ff7b1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Victor here EDITED\",\"description\":\"EDITED!\"}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Artist",
+					"request": {
+						"url": "http://localhost:8085/api/artist/artists/2205e891-9f3d-4126-b569-a5a836b70dad",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Songs",
+			"description": "",
+			"item": [
+				{
+					"name": "GET Songs",
+					"request": {
+						"url": "http://localhost:8085/api/song/songs",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST Song",
+					"request": {
+						"url": "http://localhost:8085/api/song/songs",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"Hall of Fame\",\n        \"duration\": \"00:03:22\",\n        \"artistId\": \"4419c14e-f531-4be3-90e6-ca9694bdb175\",\n        \"albumId\": \"4419c14e-f531-4be3-90e6-ca9694bdb175\",\n        \"urlVideo\": \"https://www.youtube.com/watch?v=mk48xRzuNvA\"\n    }"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET Song",
+					"request": {
+						"url": "http://localhost:8085/api/song/songs/518d6e49-f8de-42b0-8bd6-5f31908b8a75",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Song",
+					"request": {
+						"url": "http://localhost:8085/api/song/songs/56210996-6ddc-4616-97c7-a9b457915131",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Albums",
+			"description": "",
+			"item": [
+				{
+					"name": "GET Albums",
+					"request": {
+						"url": "http://localhost:8085/api/album/albums",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST Album",
+					"request": {
+						"url": "http://localhost:8085/api/album/albums",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"The Script\",\"description\":\"The Script's third album may not be brimming with originality, but it finds the Irish pop rock trio taking an unexpected turn toward hip-hop. Lead single Hall of Fame, featuring frontman Danny O'Donoghue's fellow coach on The Voice UK, will.i.am, is a motivational anthem about being all you can be. The band call their signature sound Celtic soul, which can be found on stadium anthem Kaleidoscope and on Six Degrees of Separation, a song that takes us through the painful stages after a romantic split. The album's emotional climax is If You Could See Me Now, on which O'Donoghue raps to his late father about how far he's come.\",\"coverUrl\":\"https://lh3.googleusercontent.com/93tRMRWbsdn43axEJf4FGtaipb5Byb3k8Tei1N4a9zA3jeVWTOHTNyWO1U5JEFoePwP8iMrh=s360-c-e100-rwu-v1\",\"songsId\":[\"bla, bla, bla\"]}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET Album",
+					"request": {
+						"url": "http://localhost:8085/api/album/albums/5cdc7527-42a9-4d97-88ab-31726e87c8ac\n",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Album",
+					"request": {
+						"url": "http://localhost:8085/api/album/albums/5cdc7527-42a9-4d97-88ab-31726e87c8ac",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"The Script BLA EDITED\",\"description\":\"The Script's third album may not be brimming with originality, but it finds the Irish pop rock trio taking an unexpected turn toward hip-hop. Lead single Hall of Fame, featuring frontman Danny O'Donoghue's fellow coach on The Voice UK, will.i.am, is a motivational anthem about being all you can be. The band call their signature sound Celtic soul, which can be found on stadium anthem Kaleidoscope and on Six Degrees of Separation, a song that takes us through the painful stages after a romantic split. The album's emotional climax is If You Could See Me Now, on which O'Donoghue raps to his late father about how far he's come.\",\"coverUrl\":\"https://lh3.googleusercontent.com/93tRMRWbsdn43axEJf4FGtaipb5Byb3k8Tei1N4a9zA3jeVWTOHTNyWO1U5JEFoePwP8iMrh=s360-c-e100-rwu-v1\",\"songsId\":[\"bla, bla, bla\"]}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Abum",
+					"request": {
+						"url": "http://localhost:8085/api/album/albums/5cdc7527-42a9-4d97-88ab-31726e87c8ac",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

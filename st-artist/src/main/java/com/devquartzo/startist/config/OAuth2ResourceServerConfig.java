@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
+import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
@@ -23,7 +23,7 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
 
     @Override
     public void configure(ResourceServerSecurityConfigurer config) {
-        config.tokenServices(tokenServices());
+        config.tokenServices(tokenService());
     }
 
     @Bean
@@ -38,12 +38,23 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
         return converter;
     }
 
-    @Bean
+//    @Bean
+//    @Primary
+//    public DefaultTokenServices tokenServices() {
+//        DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
+//        defaultTokenServices.setTokenStore(tokenStore());
+//        return defaultTokenServices;
+//    }
+
     @Primary
-    public DefaultTokenServices tokenServices() {
-        DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
-        defaultTokenServices.setTokenStore(tokenStore());
-        return defaultTokenServices;
+    @Bean
+    public RemoteTokenServices tokenService() {
+        RemoteTokenServices tokenService = new RemoteTokenServices();
+        tokenService.setCheckTokenEndpointUrl(
+                "http://localhost:8089/oauth/check_token");
+        tokenService.setClientId("fooClientIdPassword");
+        tokenService.setClientSecret("secret");
+        return tokenService;
     }
 }
 
