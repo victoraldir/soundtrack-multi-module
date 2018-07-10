@@ -5,12 +5,15 @@ zuul:
     album:
       path: /album/**
       serviceId: album-service
+      sensitiveHeaders:
     song:
       path: /song/**
       serviceId: song-service
+      sensitiveHeaders:
     artist:
       path: /artist/**
       serviceId: artist-service
+      sensitiveHeaders:
 server:
   port: 8085
 

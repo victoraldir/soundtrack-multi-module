@@ -1,10 +1,11 @@
 package com.devquartzo.stauth;
 
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.xml.ws.Response;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class StAuthTest {
 
     @Test
     public void shouldPass(){
-        String accessToken = obtainAccessToken("fooClientIdPassword", "john", "123");
+        String accessToken = obtainAccessToken("spring-security-oauth2-read-write-client", "admin", "admin1234");
         Assert.assertNotNull(accessToken);
     }
 
@@ -26,9 +27,11 @@ public class StAuthTest {
         params.put("client_id", clientId);
         params.put("username", username);
         params.put("password", password);
-        io.restassured.response.Response response = RestAssured.given().auth().preemptive()
-                .basic(clientId, "secret").and().with().params(params).when()
-                .post("http://localhost:8089/oauth/token");
+
+        Response response = RestAssured.given().auth().
+                preemptive().basic(clientId,"secret").and().with().params(params).
+                when().post("http://localhost:8089/oauth/token");
+
         return response.jsonPath().getString("access_token");
     }
 

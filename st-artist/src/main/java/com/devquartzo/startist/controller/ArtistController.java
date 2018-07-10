@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/artists")
+@RequestMapping("/secured/artists")
 public class ArtistController {
 
     @Autowired

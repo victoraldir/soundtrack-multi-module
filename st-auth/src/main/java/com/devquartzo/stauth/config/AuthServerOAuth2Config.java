@@ -1,6 +1,7 @@
 package com.devquartzo.stauth.config;
 
 
+import com.devquartzo.stauth.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -29,12 +30,16 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
 
     @Autowired
     private DataSource dataSource;
+
     @Autowired
     private AuthenticationManager authenticationManager;
+
     @Autowired
     private UserDetailsService userDetailsService;
+
     @Autowired
     private PasswordEncoder oauthClientPasswordEncoder;
+
     @Bean
     public TokenStore tokenStore() {
         return new JdbcTokenStore(dataSource);

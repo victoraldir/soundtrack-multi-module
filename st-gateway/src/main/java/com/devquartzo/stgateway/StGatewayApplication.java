@@ -18,8 +18,8 @@ import java.io.IOException;
 @EnableZuulProxy
 @EnableDiscoveryClient
 @SpringBootApplication
-@Log
 @EnableSwagger2
+@Log
 public class StGatewayApplication {
 
     public static void main(String[] args) {
