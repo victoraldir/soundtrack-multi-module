@@ -17,19 +17,19 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/secured")
+@RequestMapping("/secured/albums")
 public class StAlbumController {
 
     @Autowired
     private AlbumRepository albumRepository;
 
-    @GetMapping("/albums")
+    @GetMapping
     @ResponseBody
     public List<Album> getAllAlbums() {
         return albumRepository.findAll();
     }
 
-    @GetMapping("/albums/{id}")
+    @GetMapping("/{id}")
     @ResponseBody
     public Album getAlbum(@PathVariable String id) throws AlbumNotFoundException {
 
@@ -41,7 +41,7 @@ public class StAlbumController {
         return albums.get();
     }
 
-    @PostMapping("/albums")
+    @PostMapping
     public ResponseEntity<Object> createAlbum(@RequestBody Album album) {
 
         Album savedAlbum = albumRepository.save(album);
@@ -53,7 +53,7 @@ public class StAlbumController {
 
     }
 
-    @PutMapping("albums/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Object> updateAlbum(@RequestBody Album album, @PathVariable String id) {
 
         Optional<Album> albumOptional = albumRepository.findOneById(id);
@@ -70,7 +70,7 @@ public class StAlbumController {
 
     @Transactional
     @Modifying
-    @DeleteMapping("/albums/{id}")
+    @DeleteMapping("/{id}")
     public void deleteAlbum(@PathVariable String id) {
         albumRepository.deleteById(id);
     }
