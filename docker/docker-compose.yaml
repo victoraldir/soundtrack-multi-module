@@ -17,10 +17,3 @@ services:
       - "8600:8600"
     environment:
       CONSUL_UI_BETA: "true"
-
-  swagger:
-    image: swaggerapi/swagger-ui
-    ports:
-      - "8081:8080"
-    environment:
-      API_URL: "http://localhost:8000/api-doc"
