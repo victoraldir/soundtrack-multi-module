@@ -25,3 +25,11 @@ logging:
 spring:
   application:
     name: st-gateway
+
+host.full.dns.auth.link: http://localhost:8089
+
+app.client:
+  id: spring-security-oauth2-read-write-client
+  secret: spring-security-oauth2-read-write-client-password1234
+
+auth.server.schem: http

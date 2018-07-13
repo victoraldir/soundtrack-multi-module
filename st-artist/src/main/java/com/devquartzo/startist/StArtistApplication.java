@@ -30,7 +30,6 @@ import java.io.IOException;
 @EnableJpaRepositories(basePackages = {"com.devquartzo.stcommon.artist.repository"},
         entityManagerFactoryRef = "artistEntityManagerFactory")
 @EntityScan(basePackages = {"com.devquartzo.stcommon.artist.model"})
-@EnableSwagger2
 public class StArtistApplication {
 
     public static void main(String[] args) {
@@ -62,17 +61,4 @@ public class StArtistApplication {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean
-    public Docket api() throws IOException {
-
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.devquartzo.startist.controller"))
-                .paths(PathSelectors.any())
-                .build().apiInfo(apiInfo());
-    }
-
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Artist API").version("1.0.0").build();
-    }
 }
