@@ -44,23 +44,29 @@ public class SwaggerConfig {
     }
 
     private SecurityScheme securityScheme() {
-//        GrantType grantType = new AuthorizationCodeGrantBuilder()
-//                .tokenEndpoint(new TokenEndpoint(AUTH_SERVER + "/token", "oauthtoken"))
-//                .tokenRequestEndpoint(new TokenRequestEndpoint(AUTH_SERVER + "/authorize",
-//                        CLIENT_ID, CLIENT_ID)).build();
+        GrantType grantType = new AuthorizationCodeGrantBuilder()
+                .tokenEndpoint(new TokenEndpoint(AUTH_SERVER + "/token", "oauthtoken"))
+                .tokenRequestEndpoint(new TokenRequestEndpoint(AUTH_SERVER + "/authorize",
+                        CLIENT_ID, CLIENT_SECRET))
+                .build();
 
-        GrantType grantType = new ResourceOwnerPasswordCredentialsGrant("c3ByaW5nLXNlY3VyaXR5LW9hdXRoMi1yZWFkLXdyaXRlLWNsaWVudDpzcHJpbmctc2VjdXJpdHktb2F1dGgyLXJlYWQtd3JpdGUtY2xpZW50LXBhc3N3b3JkMTIzNA==");
+//        GrantType grantType = new ClientCredentialsGrant(AUTH_SERVER + "/token");
+
+//        GrantType grantType = new ClientCredentialsGrant(AUTH_SERVER);
 
         SecurityScheme oauth = new OAuthBuilder()
-                .name("spring_oauth").grantTypes(Arrays.asList(grantType))
-                .scopes(Arrays.asList(scopes())).build();
+                .name("Authorization")
+                .grantTypes(Arrays.asList(grantType))
+                .scopes(Arrays.asList(scopes()))
+                .build();
         return oauth;
     }
 
     private SecurityContext securityContext() {
         return SecurityContext.builder().securityReferences(
                 Arrays.asList(new SecurityReference("spring_oauth", scopes())))
-                .forPaths(PathSelectors.regex("/foos.*")).build();
+                .forPaths(PathSelectors.regex("/secured/*"))
+                .build();
     }
 
     private AuthorizationScope[] scopes() {
