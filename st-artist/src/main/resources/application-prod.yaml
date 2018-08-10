@@ -1,0 +1,5 @@
+spring:
+  datasource:
+      url: jdbc:postgresql://${ST_ARTIST_POSTGRES_DB_HOST}:${ST_ARTIST_POSTGRES_DB_PORT}/${ST_ARTIST_POSTGRES_DB_SCHEME}
+      username: ${ST_ARTIST_POSTGRES_DB_USERNAME}
+      password: ${ST_ARTIST_POSTGRES_DB_PASSWORD}

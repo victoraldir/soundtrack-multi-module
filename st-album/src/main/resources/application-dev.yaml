@@ -1,1 +1,5 @@
-thymeleaf.cache: false
+spring:
+  datasource:
+        url: jdbc:postgresql://localhost:5432/st_album
+        username: stalbum
+        password: 123456

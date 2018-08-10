@@ -18,35 +18,33 @@ buildscript {
 apply plugin: 'idea'
 
 allprojects {
-    apply plugin: 'java'
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
+//    apply plugin: 'java'
+//    apply plugin: 'org.springframework.boot'
+//    apply plugin: 'io.spring.dependency-management'
 
-    group = 'com.devquartzo'
-    version = '0.0.1-SNAPSHOT'
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+//    group = 'com.devquartzo'
+//    version = '0.0.1-SNAPSHOT'
+//    sourceCompatibility = 1.8
+//    targetCompatibility = 1.8
 
     repositories {
         mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
-
-        dependencies {
-            testCompile('org.springframework.boot:spring-boot-starter-test')
-        }
     }
 }
 
-dependencies {
-    compile project(':st-album')
-    compile project(':st-artist')
-    compile project(':st-common')
-    compile project(':st-song')
-    compile project(':st-gateway')
-}
 
-jar {
-    baseName = 'soundtrack-jar'
-    version = '0.0.1-SNAPSHOT'
-}
+
+//dependencies {
+//    compile project(':st-album')
+//    compile project(':st-artist')
+//    compile project(':st-common')
+//    compile project(':st-song')
+//    compile project(':st-gateway')
+//}
+
+//jar {
+//    baseName = 'soundtrack-jar'
+//    version = '0.0.1-SNAPSHOT'
+//}

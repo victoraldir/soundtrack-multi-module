@@ -1,0 +1,5 @@
+spring:
+  cloud:
+      consul:
+        host: http://public-lb-1567832265.sa-east-1.elb.amazonaws.com
+        port: 80

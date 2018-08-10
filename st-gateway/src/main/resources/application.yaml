@@ -25,6 +25,7 @@ logging:
 spring:
   application:
     name: st-gateway
+    profiles.active: dev
 
 host.full.dns.auth.link: http://localhost:8089
 

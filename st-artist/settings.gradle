@@ -1,2 +1,2 @@
-include 'st-commons'
 rootProject.name = 'st-artist'
+//include 'st-common'

@@ -1,7 +1,6 @@
 package com.devquartzo.stauth.config;
 
 import com.devquartzo.stauth.config.encryption.Encoders;
-import com.devquartzo.stauth.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;

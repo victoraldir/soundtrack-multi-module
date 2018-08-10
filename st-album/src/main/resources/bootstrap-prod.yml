@@ -1,0 +1,7 @@
+spring:
+  cloud:
+      consul:
+        discovery:
+          prefer-ip-address: true
+        host: ${ST_ALBUM_CONSUL_HOST}
+        port: ${ST_ALBUM_CONSUL_PORT}

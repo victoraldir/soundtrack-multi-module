@@ -1,8 +1,6 @@
 package com.devquartzo.stalbum.controller;
 
 import com.devquartzo.stalbum.exception.AlbumNotFoundException;
-
-
 import com.devquartzo.stcommon.album.model.Album;
 import com.devquartzo.stcommon.album.repository.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/secured/albums")
+@RequestMapping("/albums")
 public class StAlbumController {
 
     @Autowired

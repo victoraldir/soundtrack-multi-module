@@ -1,0 +1,5 @@
+spring:
+  datasource:
+      url: jdbc:postgresql://${ST_ALBUM_POSTGRES_DB_HOST}:${ST_ALBUM_POSTGRES_DB_PORT}/${ST_ALBUM_POSTGRES_DB_SCHEME}
+      username: ${ST_ALBUM_POSTGRES_DB_USERNAME}
+      password: ${ST_ALBUM_POSTGRES_DB_PASSWORD}

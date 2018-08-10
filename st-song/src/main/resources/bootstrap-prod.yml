@@ -1,0 +1,7 @@
+spring:
+  cloud:
+      consul:
+        discovery:
+          prefer-ip-address: true
+        host: ${ST_SONG_CONSUL_HOST}
+        port: ${ST_SONG_CONSUL_PORT}

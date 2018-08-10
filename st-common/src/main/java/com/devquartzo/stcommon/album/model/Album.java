@@ -1,7 +1,7 @@
 package com.devquartzo.stcommon.album.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.devquartzo.stcommon.album.converter.StringListConverter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.Column;
