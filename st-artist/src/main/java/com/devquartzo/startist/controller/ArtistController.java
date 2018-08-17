@@ -4,6 +4,7 @@ import com.devquartzo.startist.exception.ArtistNotFoundException;
 import com.devquartzo.stcommon.artist.model.Artist;
 import com.devquartzo.stcommon.artist.repository.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,11 +20,17 @@ import java.util.Optional;
 public class ArtistController {
 
     @Autowired
+    DiscoveryClient discoveryClient;
+
+    @Autowired
     private ArtistRepository artistRepository;
 
     @GetMapping
     @ResponseBody
     public List<Artist> getAllArtists() {
+
+        System.out.println(discoveryClient.getServices().size());
+
         return artistRepository.findAll();
     }
 
