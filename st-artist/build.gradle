@@ -68,6 +68,6 @@ dependencies {
     compile('org.flywaydb:flyway-core:5.1.1')
     compile('postgresql:postgresql:9.0-801.jdbc4')
     compile ('io.springfox:springfox-swagger2:2.9.2')
-    compile('io.springfox:springfox-swagger-ui:2.9.2')
+//    compile('io.springfox:springfox-swagger-ui:2.9.2')
     compile project(':st-common')
 }
