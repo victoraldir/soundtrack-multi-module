@@ -1,4 +1,4 @@
-package com.devquartzo.stalbum.exception;
+package com.devquartzo.crawler.exception;
 
 public class AlbumNotFoundException extends Exception {
     public AlbumNotFoundException(String msg){

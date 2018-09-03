@@ -1,4 +1,4 @@
-//package com.devquartzo.stalbum.config;
+//package com.devquartzo.crawler.config;
 //
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.config.annotation.web.builders.WebSecurity;

@@ -1,6 +1,6 @@
-package com.devquartzo.stalbum.controller;
+package com.devquartzo.crawler.controller;
 
-import com.devquartzo.stalbum.exception.AlbumNotFoundException;
+import com.devquartzo.crawler.exception.AlbumNotFoundException;
 import com.devquartzo.stcommon.album.model.Album;
 import com.devquartzo.stcommon.album.repository.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;

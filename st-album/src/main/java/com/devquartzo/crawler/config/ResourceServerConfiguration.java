@@ -1,4 +1,4 @@
-//package com.devquartzo.startist.config;
+//package com.devquartzo.crawler.config;
 //
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
@@ -26,7 +26,7 @@
 //
 //    @Override
 //    public void configure(HttpSecurity http) throws Exception {
-////        http.csrf().disable();
+//        http.csrf().disable();
 //        http.requestMatchers()
 //                .antMatchers(SECURED_PATTERN).and().authorizeRequests()
 //                .antMatchers(HttpMethod.POST, SECURED_PATTERN).access(SECURED_WRITE_SCOPE)

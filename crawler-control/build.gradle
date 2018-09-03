@@ -25,12 +25,19 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: "com.palantir.docker"
 
-group = 'com.devquartzo.stgateway'
+group = 'com.devquartzo.crawler'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "https://repo.spring.io/libs-milestone" }
+}
+
 jar {
-    baseName = 'st-gateway'
+    baseName = 'st-album'
 }
 
 docker {
@@ -41,27 +48,13 @@ docker {
     buildArgs(['JAR_FILE': "${jar.baseName}-0.0.1-SNAPSHOT.jar"])
 }
 
-repositories {
-    mavenCentral()
-    maven { url "https://repo.spring.io/snapshot" }
-    maven { url "https://repo.spring.io/milestone" }
-}
-
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web'){
-        exclude module: 'spring-boot-starter-tomcat'
-        exclude group: 'org.springframework.boot'
-    }
-
-    compile('org.springframework.boot:spring-boot-starter-jetty')
-
-    compile('org.springframework.boot:spring-boot-starter-security')
-
-    compile('org.springframework.cloud:spring-cloud-commons:1.3.3.RELEASE')
-    compile('org.springframework.cloud:spring-cloud-starter-zuul:1.3.3.RELEASE')
-    compile('org.springframework.cloud:spring-cloud-starter-consul-all:1.3.3.RELEASE')
-    compile ('io.springfox:springfox-swagger2:2.9.2')
-    compile('io.springfox:springfox-swagger-ui:2.9.2')
-    compileOnly('org.projectlombok:lombok:1.18.0')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.apache.camel:camel-spring-boot-starter:2.21.1')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    //Crawler stuff
+    compile('edu.uci.ics:crawler4j:4.4.0')
 }

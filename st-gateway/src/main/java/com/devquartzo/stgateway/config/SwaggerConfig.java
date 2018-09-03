@@ -1,8 +1,12 @@
 package com.devquartzo.stgateway.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.*;
@@ -20,14 +24,11 @@ import java.util.List;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfig {
+public class SwaggerConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${app.client.id}")
-    private String clientId;
-    @Value("${app.client.secret}")
-    private String clientSecret;
-    @Value("${host.full.dns.auth.link}")
-    private String authLink;
+
+    @Autowired
+    private BasicAuthenticationPoint basicAuthenticationPoint;
 
     @Bean
     public Docket api() throws IOException {
@@ -36,52 +37,25 @@ public class SwaggerConfig {
                 .pathMapping("/api")
                 .select()
                 .paths(PathSelectors.any())
-                .build().apiInfo(apiInfo())
-                .securitySchemes(Collections.singletonList(securitySchema()))
-                .securityContexts(Collections.singletonList(securityContext()));
+                .build().apiInfo(apiInfo());
     }
 
-    private OAuth securitySchema() {
-
-        List<AuthorizationScope> authorizationScopeList = new ArrayList<>();
-        authorizationScopeList.add(new AuthorizationScope("read", "read all"));
-        authorizationScopeList.add(new AuthorizationScope("trust", "trust all"));
-        authorizationScopeList.add(new AuthorizationScope("write", "access all"));
-
-        List<GrantType> grantTypes = new ArrayList();
-        GrantType creGrant = new ResourceOwnerPasswordCredentialsGrant(authLink+"/oauth/token");
-
-        grantTypes.add(creGrant);
-
-        return new OAuth("oauth2schema", authorizationScopeList, grantTypes);
-
-    }
-
-    private SecurityContext securityContext() {
-        return SecurityContext.builder()
-                .securityReferences(defaultAuth())
-                .forPaths(PathSelectors.ant("/api/**"))
-                .build();
-    }
-
-    private List<SecurityReference> defaultAuth() {
-
-        final AuthorizationScope[] authorizationScopes = new AuthorizationScope[3];
-        authorizationScopes[0] = new AuthorizationScope("read", "read all");
-        authorizationScopes[1] = new AuthorizationScope("trust", "trust all");
-        authorizationScopes[2] = new AuthorizationScope("write", "write all");
-
-        return Collections.singletonList(new SecurityReference("oauth2schema", authorizationScopes));
-    }
-
-    @Bean
-    public SecurityConfiguration securityInfo() {
-        return SecurityConfigurationBuilder.builder().clientId(clientId).clientSecret(clientSecret)
-                .useBasicAuthenticationWithAccessCodeGrant(true).build();
-    }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("Sound Tracker API").version("1.0.0").build();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("user").password("admin").roles("USER");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
+        http.authorizeRequests().antMatchers("/", "/api/**").permitAll()
+                .anyRequest().authenticated();
+        http.httpBasic().authenticationEntryPoint(basicAuthenticationPoint);
     }
 
 }

@@ -1,36 +1,24 @@
 version: '3.1'
 services:
-  db:
-    image: postgres:9.4
-    restart: always
-    ports:
-        - "5432:5432"
-    environment:
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: 123456
-    volumes:
-        - ./sql/init.sh:/docker-entrypoint-initdb.d/init.sh
-  consul:
-    image: consul
-    ports:
-      - "8500:8500"
-      - "8600:8600"
-    environment:
-      CONSUL_UI_BETA: "true"
   st-artist:
     image: st-artist
-    ports:
-      - "9292:8500"
-      - "9191:8600"
-    links:
-      - "consul"
-      - "db"
     environment:
       PROFILE: prod
-      ST_ARTIST_POSTGRES_DB_HOST: localhost
+      ST_ARTIST_POSTGRES_DB_HOST: dbapi.cwbjjpmrugyl.sa-east-1.rds.amazonaws.com
       ST_ARTIST_POSTGRES_DB_PORT: 5432
       ST_ARTIST_POSTGRES_DB_SCHEME: st_artist
       ST_ARTIST_POSTGRES_DB_USERNAME: startist
       ST_ARTIST_POSTGRES_DB_PASSWORD: 123456
-      ST_ARTIST_CONSUL_HOST: 127.0.0.1
-      ST_ARTIST_CONSUL_PORT: 8500
+      ST_ARTIST_CONSUL_HOST: public-lb-1567832265.sa-east-1.elb.amazonaws.com
+      ST_ARTIST_CONSUL_PORT: 80
+  st-song:
+      image: st-song
+      environment:
+        PROFILE: prod
+        ST_ARTIST_POSTGRES_DB_HOST: dbapi.cwbjjpmrugyl.sa-east-1.rds.amazonaws.com
+        ST_ARTIST_POSTGRES_DB_PORT: 5432
+        ST_ARTIST_POSTGRES_DB_SCHEME: st_artist
+        ST_ARTIST_POSTGRES_DB_USERNAME: startist
+        ST_ARTIST_POSTGRES_DB_PASSWORD: 123456
+        ST_ARTIST_CONSUL_HOST: public-lb-1567832265.sa-east-1.elb.amazonaws.com
+        ST_ARTIST_CONSUL_PORT: 80

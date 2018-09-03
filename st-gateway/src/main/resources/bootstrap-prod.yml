@@ -3,5 +3,5 @@ spring:
       consul:
         discovery:
           prefer-ip-address: true
-        host: "http://public-lb-1567832265.sa-east-1.elb.amazonaws.com"
-        port: 80
+        host: ${CONSUL_HOST}
+        port: ${CONSUL_PORT}

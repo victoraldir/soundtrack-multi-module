@@ -1,4 +1,4 @@
-package com.devquartzo.stalbum;
+package com.devquartzo.crawler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -63,7 +63,7 @@ public class StAlbumApplication {
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.devquartzo.stalbum.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.devquartzo.crawler.controller"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(apiInfo());
     }
