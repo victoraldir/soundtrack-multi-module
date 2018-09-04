@@ -28,8 +28,6 @@ public class MyCrawler extends WebCrawler {
     @Override
     public boolean shouldVisit(Page referringPage, WebURL url) {
         String href = url.getURL().toLowerCase();
-//        return !FILTERS.matcher(href).matches()
-//                && href.startsWith("http://www.ics.uci.edu/");
         return !FILTERS.matcher(href).matches();
     }
 

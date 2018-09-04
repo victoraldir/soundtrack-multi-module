@@ -8,3 +8,6 @@ include 'st-common'
 include 'st-auth'
 include 'crawler-control'
 include 'soundtracker'
+include 'createthumblambda'
+findProject(':createthumblambda')?.name = 'createthumb'
+

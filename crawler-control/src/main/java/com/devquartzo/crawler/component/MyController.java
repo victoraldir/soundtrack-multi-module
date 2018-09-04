@@ -25,10 +25,15 @@ public class MyController {
     }
 
     protected void createCrawlController() throws Exception {
+
+        int crawlDepth = 2;
+
         /*
          * Instantiate the controller for this crawl.
          */
         CrawlConfig config = createCrawlConfig();
+
+        config.setMaxDepthOfCrawling(crawlDepth);
 
         PageFetcher pageFetcher = new PageFetcher(config);
         RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
@@ -41,6 +46,7 @@ public class MyController {
 
         int numberOfCrawlers = 7;
         createCrawlController();
+
 
         /*
          * For each crawl, you need to add some seed urls. These are the first
